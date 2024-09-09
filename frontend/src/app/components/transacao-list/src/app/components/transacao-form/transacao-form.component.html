@@ -1,0 +1,16 @@
+<h2>{{ isEdit ? 'Editar Transação' : 'Nova Transação' }}</h2>
+<form (ngSubmit)="submitForm()">
+  <label for="descricao">Descrição:</label>
+  <input type="text" id="descricao" [(ngModel)]="transacao.descricao" name="descricao" required>
+
+  <label for="valor">Valor:</label>
+  <input type="number" id="valor" [(ngModel)]="transacao.valor" name="valor" required>
+
+  <label for="tipo">Tipo de Transação:</label>
+  <select [(ngModel)]="transacao.tipo_transacao_id" name="tipo" required>
+    <option *ngFor="let tipo of tiposTransacao" [value]="tipo.id">{{ tipo.nome }}</option>
+  </select>
+
+  <button type="submit">{{ isEdit ? 'Atualizar' : 'Criar' }}</button>
+  <button routerLink="/">Cancelar</button>
+</form>

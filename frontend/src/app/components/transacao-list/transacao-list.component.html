@@ -1,0 +1,23 @@
+<h2>Lista de Transações</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th>Tipo</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transacao of transacoes">
+      <td>{{ transacao.descricao }}</td>
+      <td>{{ transacao.valor | currency }}</td>
+      <td>{{ transacao.tipoTransacao.nome }}</td>
+      <td>
+        <button (click)="editTransacao(transacao)">Editar</button>
+        <button (click)="deleteTransacao(transacao.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button routerLink="/create">Adicionar Nova Transação</button>
